@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Знайти найменше число</title>
+  <script>
+
+    function findMinValue() {
+     
+      const input = document.getElementById("numbersInput").value;
+      
+      const numbers = input.split(',').map(num => parseFloat(num.trim()));
+   
+      if (numbers.some(isNaN)) {
+        alert("Будь ласка, введіть тільки числа, розділені комами.");
+        return;
+      }
+      const minValue = Math.min(...numbers);
+      document.getElementById("result").innerHTML = `Найменше число: ${minValue}`;
+    }
+  </script>
+</head>
+<body>
+  
+  <label for="numbersInput">Введіть числа, розділені комами:</label>
+  <input type="text" id="numbersInput" placeholder="Наприклад: 1,2,3,4,9">
+  
+  <button onclick="findMinValue()">Знайти найменше</button>
+
+  <p id="result"></p>
+</body>
+</html>
